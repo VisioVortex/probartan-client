@@ -27,7 +27,7 @@ function Register() {
         };
 
         axios.post(
-          "http://localhost:5000/users",
+          "https://probartan-server.onrender.com/users",
           userInfo
         );
         setSuccess("Registration Successful");

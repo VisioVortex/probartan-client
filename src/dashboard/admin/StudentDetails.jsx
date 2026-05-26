@@ -13,7 +13,7 @@ function StudentDetails() {
   useEffect(() => {
 
     axios
-      .get(`http://localhost:5000/students/${id}`)
+      .get(`https://probartan-server.onrender.com/students/${id}`)
       .then((res) => {
 
         setStudent(res.data);

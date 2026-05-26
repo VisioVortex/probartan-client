@@ -64,7 +64,7 @@ useEffect(() => {
 
         axios
           .get(
-            `http://localhost:5000/users/${currentUser.email}`
+            `https://probartan-server.onrender.com/users/${currentUser.email}`
           )
           .then((res) => {
 

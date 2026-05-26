@@ -23,7 +23,7 @@ function AdminHome() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/students")
+      .get("https://probartan-server.onrender.com/students")
       .then((res) => {
 
         setStudents(res.data);
@@ -31,7 +31,7 @@ function AdminHome() {
       });
 
     axios
-      .get("http://localhost:5000/attendance")
+      .get("https://probartan-server.onrender.com/attendance")
       .then((res) => {
 
         setAttendance(res.data);
@@ -39,7 +39,7 @@ function AdminHome() {
       });
 
     axios
-      .get("http://localhost:5000/fees")
+      .get("https://probartan-server.onrender.com/fees")
       .then((res) => {
 
         setFees(res.data);

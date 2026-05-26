@@ -24,7 +24,7 @@ function AddRoutine() {
     };
 
     axios
-      .post("http://localhost:5000/routine", routineData)
+      .post("https://probartan-server.onrender.com/routine", routineData)
       .then(() => {
         setSuccess("Routine Added Successfully");
         form.reset();

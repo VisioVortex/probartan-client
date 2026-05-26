@@ -8,7 +8,7 @@ function TeacherStudents() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/students")
+      .get("https://probartan-server.onrender.com/students")
       .then((res) => {
         setStudents(res.data);
       });

@@ -61,7 +61,7 @@ function Students() {
       };
 
       await axios.post(
-        "http://localhost:5000/students",
+        "https://probartan-server.onrender.com/students",
         studentInfo
       );
 
@@ -85,7 +85,7 @@ function Students() {
     try {
 
       const res = await axios.delete(
-        `http://localhost:5000/students/${id}`
+        `https://probartan-server.onrender.com/students/${id}`
       );
       console.log(res);
       toast.success("Student Deleted Successfully");
@@ -120,7 +120,7 @@ function Students() {
     try {
 
       const res = await axios.patch(
-        `http://localhost:5000/students/${editingStudent._id}`,
+        `https://probartan-server.onrender.com/students/${editingStudent._id}`,
         updatedInfo
       );
       console.log(res);
@@ -142,7 +142,7 @@ function Students() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/students")
+      .get("https://probartan-server.onrender.com/students")
       .then((res) => {
         setStudents(res.data);
       })

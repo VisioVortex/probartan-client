@@ -15,7 +15,7 @@ function Fees() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/students")
+      .get("https://probartan-server.onrender.com/students")
       .then((res) => {
 
         setStudents(res.data);
@@ -23,7 +23,7 @@ function Fees() {
       });
 
     axios
-      .get("http://localhost:5000/fees")
+      .get("https://probartan-server.onrender.com/fees")
       .then((res) => {
 
         setFees(res.data);
@@ -63,7 +63,7 @@ function Fees() {
     try {
 
       await axios.post(
-        "http://localhost:5000/fees",
+        "https://probartan-server.onrender.com/fees",
         feesInfo
       );
 

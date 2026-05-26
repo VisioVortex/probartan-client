@@ -14,7 +14,7 @@ function AttendanceHistory() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/attendance")
+      .get("https://probartan-server.onrender.com/attendance")
       .then((res) => {
 
         setAttendance(res.data);

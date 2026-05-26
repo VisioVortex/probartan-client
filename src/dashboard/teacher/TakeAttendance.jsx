@@ -8,7 +8,7 @@ function TakeAttendance() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/students")
+      .get("https://probartan-server.onrender.com/students")
       .then((res) => {
         setStudents(res.data);
       });
@@ -23,7 +23,7 @@ function TakeAttendance() {
       date: new Date().toLocaleDateString(),
     };
 
-    axios.post("http://localhost:5000/attendance", data)
+    axios.post("https://probartan-server.onrender.com/attendance", data)
       .then(() => {
         alert("Attendance saved");
       });

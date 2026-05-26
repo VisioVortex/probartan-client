@@ -15,7 +15,7 @@ function StudentRoutine() {
     if (user?.email) {
 
       axios
-        .get(`http://localhost:5000/users/${user.email}`)
+        .get(`https://probartan-server.onrender.com/users/${user.email}`)
         .then((res) => {
 
           if (res.data?.batch) {
@@ -34,7 +34,7 @@ function StudentRoutine() {
     if (batch) {
 
       axios
-        .get(`http://localhost:5000/routine/${batch}`)
+        .get(`https://probartan-server.onrender.com/routine/${batch}`)
         .then((res) => {
           setRoutine(res.data);
         });

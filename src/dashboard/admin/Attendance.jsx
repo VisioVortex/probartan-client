@@ -11,7 +11,7 @@ function Attendance() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/students")
+      .get("https://probartan-server.onrender.com/students")
       .then((res) => {
 
         setStudents(res.data);
@@ -36,7 +36,7 @@ function Attendance() {
     try {
 
       await axios.post(
-        "http://localhost:5000/attendance",
+        "https://probartan-server.onrender.com/attendance",
         attendanceInfo
       );
 

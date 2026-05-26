@@ -14,7 +14,7 @@ function StudentAttendance() {
 
       axios
         .get(
-          `http://localhost:5000/attendance/${user.email}`
+          `https://probartan-server.onrender.com/attendance/${user.email}`
         )
         .then((res) => {
 
