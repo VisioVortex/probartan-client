@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api/api";
+import { Link } from "react-router-dom";
 
 function Home() {
 
@@ -32,7 +33,7 @@ function Home() {
     <div className="bg-gray-50">
 
       {/* HERO SECTION */}
-      <section className="bg-gradient-to-r from-blue-700 to-indigo-700 text-white overflow-hidden">
+      <section className="bg-linear-to-r from-blue-700 to-indigo-700 text-white overflow-hidden">
 
         <div className="max-w-7xl mx-auto px-5 py-24 grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
 
@@ -168,11 +169,14 @@ function Home() {
 
                   </div>
 
-                  <button className="bg-blue-600 text-white px-5 py-3 rounded-2xl font-bold">
+                  <Link
+                    to={`/course/${course._id}`}
+                    className="bg-blue-600 text-white px-5 py-3 rounded-2xl font-bold"
+                  >
 
-                    ভর্তি হোন
+                    বিস্তারিত দেখুন
 
-                  </button>
+                  </Link>
 
                 </div>
 

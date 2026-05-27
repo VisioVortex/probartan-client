@@ -40,6 +40,7 @@ import TeacherStudents from "../dashboard/teacher/TeacherStudents";
 import TakeAttendance from "../dashboard/teacher/TakeAttendance";
 
 import TeacherHome from "../dashboard/teacher/TeacherHome";
+import CourseDetails from "../pages/CourseDetails";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,21 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/course/:id",
+
+        loader: async ({ params }) => {
+
+          const res = await fetch(
+            `https://probartan-server.onrender.com/courses/${params.id}`
+          );
+
+          return res.json();
+
+        },
+
+        element: <CourseDetails />,
       },
     ],
   },
