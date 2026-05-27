@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Toaster } from "react-hot-toast";
+import { Analytics } from '@vercel/analytics/react';
 import './index.css'
 import AuthProvider from "./providers/AuthProvider";
 
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
       <Toaster />
+      <Analytics />
     </AuthProvider>
 
   </React.StrictMode>,
