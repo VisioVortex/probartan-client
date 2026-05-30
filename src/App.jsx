@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/react';
 function App() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -7,6 +8,7 @@ function App() {
         প্রবর্তন কোচিং সেন্টার
       </h1>
       <Analytics/>
+      <SpeedInsights/>
     </div>
   )
 }
