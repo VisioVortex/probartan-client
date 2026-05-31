@@ -11,6 +11,8 @@ function Courses() {
     image: "",
     price: "",
     duration: "",
+    category: "",
+    learning: "",
     featured: false,
   });
 
@@ -47,7 +49,14 @@ function Courses() {
 
     e.preventDefault();
 
-    api.post("/courses", formData)
+    const courseData = {
+      ...formData,
+      learning: formData.learning
+        .split("\n")
+        .filter((item) => item.trim() !== ""),
+    };
+
+    api.post("/courses", courseData)
       .then(() => {
 
         alert("Course Added");
@@ -60,6 +69,8 @@ function Courses() {
           image: "",
           price: "",
           duration: "",
+          category: "",
+          learning: "",
           featured: false,
         });
 
@@ -119,6 +130,15 @@ function Courses() {
             className="border p-4 rounded-2xl"
           />
 
+          <input
+            type="text"
+            name="category"
+            placeholder="Category"
+            value={formData.category}
+            onChange={handleChange}
+            className="border p-4 rounded-2xl"
+          />
+
           <textarea
             name="description"
             placeholder="Course Description"
@@ -127,6 +147,15 @@ function Courses() {
             className="border p-4 rounded-2xl md:col-span-2"
             rows="5"
           ></textarea>
+
+          <textarea
+            name="learning"
+            placeholder="Learning Points (one per line)"
+            value={formData.learning}
+            onChange={handleChange}
+            className="border p-4 rounded-2xl md:col-span-2"
+            rows="5"
+          />
 
           <label className="flex items-center gap-3">
 
