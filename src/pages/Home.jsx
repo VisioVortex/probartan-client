@@ -22,11 +22,11 @@ function Home() {
 
   }, []);
 
-  if (!homepage) {
+  // if (!homepage) {
 
-    return <h1 className="text-center py-40">Loading...</h1>;
+  //   return <h1 className="text-center py-40">Loading...</h1>;
 
-  }
+  // }
 
   return (
 
