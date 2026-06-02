@@ -15,6 +15,8 @@ function Register() {
 
     const form = e.target;
 
+    const name = form.name.value;
+    const phone = form.phone.value;
     const email = form.email.value;
     const password = form.password.value;
     const role = form.role.value;
@@ -22,9 +24,11 @@ function Register() {
     createUser(email, password)
       .then(() => {
         const userInfo = {
-          email,
-          role,
-        };
+        name,
+        phone,
+        email,
+        role,
+      };
 
         axios.post(
           "https://probartan-server.onrender.com/users",
@@ -50,7 +54,21 @@ function Register() {
           onSubmit={handleRegister}
           className="mt-8 space-y-5"
         >
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            className="w-full border p-3 rounded-lg"
+            required
+          />
 
+          <input
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            className="w-full border p-3 rounded-lg"
+            required
+          />
           <input
             type="email"
             name="email"
