@@ -34,6 +34,7 @@ import StudentAttendance from "../dashboard/student/StudentAttendance"
 import StudentFees from "../dashboard/student/StudentFees"
 import StudentRoutine from "../dashboard/student/StudentRoutine"
 import AddRoutine from "../dashboard/admin/AddRoutine";
+import MyCourses from "../dashboard/student/MyCourses";
 
 import TeacherRoute from "../private/TeacherRoute";
 import TeacherStudents from "../dashboard/teacher/TeacherStudents";
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
       {
         path: "fees",
         element: <StudentFees />,
+      },
+      {
+        path: "my-courses",
+        element: <MyCourses />,
       },
       {
         path: "routine",

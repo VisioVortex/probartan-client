@@ -1,8 +1,28 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 function CourseDetails() {
 
   const course = useLoaderData();
+
+  const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const handleEnroll = () => {
+
+    if (!user) {
+
+      navigate("/register");
+
+      return;
+
+    }
+
+    navigate(`/student/payment/${course._id}`);
+
+  };
 
   return (
 
@@ -75,7 +95,7 @@ function CourseDetails() {
                 ৳ {course.price}
               </h2>
 
-              <button className="bg-blue-600 hover:bg-blue-700 duration-300 text-white px-8 py-4 rounded-2xl font-bold text-lg">
+              <button onClick={handleEnroll} className="bg-blue-600 hover:bg-blue-700 duration-300 text-white px-8 py-4 rounded-2xl font-bold text-lg">
 
                 ভর্তি হোন
 
