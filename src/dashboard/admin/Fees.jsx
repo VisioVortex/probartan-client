@@ -9,6 +9,7 @@ function Fees() {
   const [students, setStudents] = useState([]);
 
   const [fees, setFees] = useState([]);
+  const [payments, setPayments] = useState([]);
 
   const [reload, setReload] = useState(false);
 
@@ -28,6 +29,12 @@ function Fees() {
 
         setFees(res.data);
 
+      });
+
+    axios
+      .get("https://probartan-server.onrender.com/payments")
+      .then((res) => {
+        setPayments(res.data);
       });
 
   }, [reload]);
@@ -80,6 +87,32 @@ function Fees() {
       toast.error("Failed To Add Fees");
 
     }
+
+  };
+
+  const handleApprove = async (id) => {
+
+    await axios.patch(
+      `https://probartan-server.onrender.com/payments/${id}`,
+      {
+        status: "Approved",
+      }
+    );
+
+    setReload(!reload);
+
+  };
+
+  const handleReject = async (id) => {
+
+    await axios.patch(
+      `https://probartan-server.onrender.com/payments/${id}`,
+      {
+        status: "Rejected",
+      }
+    );
+
+    setReload(!reload);
 
   };
 
@@ -241,6 +274,97 @@ function Fees() {
           </tbody>
 
         </table>
+
+        <div className="mt-12">
+
+          <h2 className="text-3xl font-bold mb-6">
+            Payment Requests
+          </h2>
+
+          <div className="bg-white rounded-2xl shadow overflow-hidden">
+
+            <table className="w-full">
+
+              <thead className="bg-indigo-600 text-white">
+
+                <tr>
+                  <th className="p-4">Student</th>
+                  <th className="p-4">Course</th>
+                  <th className="p-4">Amount</th>
+                  <th className="p-4">Method</th>
+                  <th className="p-4">Transaction ID</th>
+                  <th className="p-4">Status</th>
+                  <th className="p-4">Action</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                {payments.map((payment) => (
+
+                  <tr
+                    key={payment._id}
+                    className="border-b"
+                  >
+
+                    <td className="p-4">
+                      {payment.studentName}
+                    </td>
+
+                    <td className="p-4">
+                      {payment.courseName}
+                    </td>
+
+                    <td className="p-4">
+                      ৳ {payment.amount}
+                    </td>
+
+                    <td className="p-4">
+                      {payment.method}
+                    </td>
+
+                    <td className="p-4">
+                      {payment.transactionId}
+                    </td>
+
+                    <td className="p-4">
+                      {payment.status}
+                    </td>
+
+                    <td className="p-4 flex gap-2">
+
+                      <button
+                        onClick={() =>
+                          handleApprove(payment._id)
+                        }
+                        className="bg-green-500 text-white px-3 py-2 rounded"
+                      >
+                        Approve
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          handleReject(payment._id)
+                        }
+                        className="bg-red-500 text-white px-3 py-2 rounded"
+                      >
+                        Reject
+                      </button>
+
+                    </td>
+
+                  </tr>
+
+                ))}
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
 
       </div>
 
