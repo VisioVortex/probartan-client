@@ -30,6 +30,12 @@ function StudentLayout() {
           </li>
 
           <li>
+            <Link to="/student/payments">
+              Payments
+            </Link>
+          </li>
+
+          <li>
             <Link to="/student/my-courses">
               My Courses
             </Link>

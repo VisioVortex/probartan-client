@@ -35,6 +35,9 @@ import StudentFees from "../dashboard/student/StudentFees"
 import StudentRoutine from "../dashboard/student/StudentRoutine"
 import AddRoutine from "../dashboard/admin/AddRoutine";
 import MyCourses from "../dashboard/student/MyCourses";
+import StudentPayments from "../dashboard/student/StudentPayments";
+import EnrollCourse from "../pages/EnrollCourse";
+
 
 import TeacherRoute from "../private/TeacherRoute";
 import TeacherStudents from "../dashboard/teacher/TeacherStudents";
@@ -119,10 +122,15 @@ const router = createBrowserRouter([
         element: <MyCourses />,
       },
       {
+        path: "payments",
+        element: <StudentPayments />,
+      },
+      {
         path: "routine",
         element: <StudentRoutine />,
       },
     ],
+    
   },
 
  {
@@ -202,6 +210,20 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+  path: "/enroll/:id",
+
+  loader: async ({ params }) => {
+
+    const res = await fetch(
+      `https://probartan-server.onrender.com/courses/${params.id}`
+    );
+
+    return res.json();
+  },
+
+  element: <EnrollCourse />,
+},
   // {
   //   path: "/student",
   //   element: <StudentHome />,

@@ -1,6 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 function CourseDetails() {
 
@@ -95,11 +96,11 @@ function CourseDetails() {
                 ৳ {course.price}
               </h2>
 
-              <button onClick={handleEnroll} className="bg-blue-600 hover:bg-blue-700 duration-300 text-white px-8 py-4 rounded-2xl font-bold text-lg">
+              <Link to={`/enroll/${course._id}`} onClick={handleEnroll} className="bg-blue-600 hover:bg-blue-700 duration-300 text-white px-8 py-4 rounded-2xl font-bold text-lg">
 
                 ভর্তি হোন
 
-              </button>
+              </Link>
 
             </div>
 
