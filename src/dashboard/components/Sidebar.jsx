@@ -65,6 +65,12 @@ function Sidebar() {
           Attendance History
         </Link>
         <Link
+          to="/admin/payments"
+          className="hover:bg-blue-800 p-3 rounded-lg"
+        >
+          Payments
+        </Link>
+        <Link
           to="/admin/fees"
           className="hover:bg-blue-800 p-3 rounded-lg"
         >

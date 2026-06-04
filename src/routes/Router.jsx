@@ -37,6 +37,7 @@ import AddRoutine from "../dashboard/admin/AddRoutine";
 import MyCourses from "../dashboard/student/MyCourses";
 import StudentPayments from "../dashboard/student/StudentPayments";
 import EnrollCourse from "../pages/EnrollCourse";
+import Payments from "../dashboard/admin/Payments";
 
 
 import TeacherRoute from "../private/TeacherRoute";
@@ -207,7 +208,11 @@ const router = createBrowserRouter([
       {
         path: "add-routine",
         element: <AddRoutine />,
-      }
+      },
+      {
+        path: "payments",
+        element: <Payments />,
+      },
     ],
   },
   {
